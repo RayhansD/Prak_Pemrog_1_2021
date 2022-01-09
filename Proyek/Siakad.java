@@ -52,6 +52,7 @@ public class Siakad {
             System.out.println("Berikut data mahasiswa: ");
             for (int i=0; i<jumlahData;i++) {
                 mahasiswa[i].getDetail();
+                System.out.println("-----------------------------------------------------------------------------");
             }
         }
         
@@ -128,11 +129,26 @@ public class Siakad {
         if (index==-1) {
             System.out.println("Data yang anda akan hapus tidak ketemu");
         } else {
-            for (int i = index; i<jumlahData; i++) {
-                mahasiswa[i] = mahasiswa[i+1];
+           System.out.println("Berikut data mahasiswa: ");
+            mahasiswa[index].getDetail();
+            System.out.println("-----------------------------------------------------------------------------");
+            System.out.println("Apakah anda yakin akan menghapus data?");
+            System.out.println("1. Ya");
+            System.out.println("2. Tidak");
+            System.out.print("Pilih Menu = ");
+            int menu = scan.nextInt();
+            if (menu==1) {
+                for (int i = index; i<jumlahData; i++) {
+                    mahasiswa[i] = mahasiswa[i+1];
+                }
+                jumlahData--;
+                lihatData();
+            } else if (menu==2) {
+                lihatData();
+            } else {
+                System.out.println("Menu tidak ada");
             }
-            jumlahData--;
-            lihatData();
+            
         }
     }
 
